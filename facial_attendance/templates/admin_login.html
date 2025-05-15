@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">🏠 Home</a></li>
+      <li><a href="/register">📷 Register Face</a></li>
+      <li><a href="/attendance">✅ Mark Attendance</a></li>
+      <li><a href="/log">📋 View Logs</a></li>
+      <li><a href="/export">📤 Export to Excel</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Admin Login</h2>
+    <form method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>

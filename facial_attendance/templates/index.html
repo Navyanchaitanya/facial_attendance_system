@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facial Attendance System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top left, #1d1f27, #0f1014);
+      overflow: hidden;
+      position: relative;
+      color: #fff;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      z-index: 2;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 0 #0ff2ff20, -1px -1px 0 #4facfe20;
+    }
+
+    .grid-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .btn {
+      padding: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+      position: relative;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(0,255,255,0.4), transparent);
+      transform: skewX(-20deg);
+    }
+
+    .btn:hover::before {
+      animation: shimmer 1s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -75%;
+      }
+      100% {
+        left: 125%;
+      }
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: rgba(0, 255, 255, 0.08);
+      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .glow-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 20%, transparent 70%),
+                  radial-gradient(circle, rgba(255, 0, 255, 0.1) 10%, transparent 60%);
+      animation: floatGlow 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatGlow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <div class="hero">
+    <h1>Facial Attendance System</h1>
+    <div class="grid-buttons">
+      <a href="/register" class="btn">➕ Add New Face</a>
+      <a href="/attendance" class="btn">✅ Mark Attendance</a>
+      <a href="/log" class="btn">📊 View Logs</a>
+    </div>
+  </div>
+</body>
+</html>

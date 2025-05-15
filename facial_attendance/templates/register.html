@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Face</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #0f172a 0%, #000000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      animation: fadeInUp 1s ease forwards;
+      width: 300px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 30px;
+      font-size: 24px;
+      text-shadow: 0 0 10px #00ffff66, 0 0 20px #00ffff33;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    input[type="text"]::placeholder {
+      color: #bbb;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #00ffff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(120deg, #00ffff, #0088ff);
+      filter: blur(10px);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Register New Face</h1>
+    <form action="/register" method="post" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Enter Name" required>
+      <input type="file" name="image" accept="image/*" required>
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>
